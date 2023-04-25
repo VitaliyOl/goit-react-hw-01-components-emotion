@@ -1,24 +1,18 @@
 import PropTypes from 'prop-types';
-import css from './Statistics.module.css';
-import { getHexColors } from 'utils/getHexColors';
+import { Section, Title, List, Item, Span } from './Statistics.styled';
 
 export const Statistics = ({ title, stats }) => (
-  <section className={css.statistics}>
-    {title && <h2 className={css.title}>{title}</h2>}
-
-    <ul className={css.statList}>
+  <Section>
+    {title && <Title>{title}</Title>}
+    <List>
       {stats.map(stat => (
-        <li
-          className={css.item}
-          key={stat.id}
-          style={{ backgroundColor: getHexColors() }}
-        >
-          <span className={css.label}>{stat.label}</span>
-          <span className={css.percentage}>{stat.percentage}%</span>
-        </li>
+        <Item key={stat.id}>
+          <span>{stat.label}</span>
+          <Span>{stat.percentage}%</Span>
+        </Item>
       ))}
-    </ul>
-  </section>
+    </List>
+  </Section>
 );
 
 Statistics.propTypes = {

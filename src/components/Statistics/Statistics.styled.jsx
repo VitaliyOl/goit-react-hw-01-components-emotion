@@ -1,38 +1,40 @@
-.statistics {
+import styled from '@emotion/styled';
+import { getHexColors } from 'utils/getHexColors';
+
+export const Section = styled.div`
   margin-bottom: 20px;
   max-width: 100%;
   border: 1px solid black;
   border-radius: 8px;
-}
+`;
 
-.title {
+export const Title = styled.h2`
   text-align: center;
   font-size: 25px;
   padding-bottom: 20px;
-}
-.statList {
+`;
+
+export const List = styled.ul`
   display: flex;
+
   justify-content: center;
   padding: 15px;
-}
+`;
 
-.item {
+export const Item = styled.li`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 
   max-width: 100px;
 
-  gap: 15px;
   border-radius: 8px;
-  box-shadow: rgb(255, 255, 255) -1px -1px 1px, rgb(186, 190, 204) 1px 1px 1px;
-}
-
-.label {
   font-size: 20px;
-}
 
-.percentage {
+  background-color: ${getHexColors};
+`;
+
+export const Span = styled.span`
   font-size: 30px;
   font-weight: 700;
-}
+`;

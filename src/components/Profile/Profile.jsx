@@ -1,31 +1,38 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+
+import {
+  ContainerAvatar,
+  AvatarImage,
+  ThumbAvatar,
+  AvatarList,
+  AvatarItem,
+} from './Profile.styled';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt={username} className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <ContainerAvatar>
+      <ThumbAvatar>
+        <AvatarImage src={avatar} alt={username} />
+        <p>{username}</p>
+        <p>{tag}</p>
+        <p>{location}</p>
+      </ThumbAvatar>
 
-      <ul className={css.stats}>
-        <li className={css.title}>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{stats.followers}</span>
-        </li>
-        <li className={css.title}>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{stats.views}</span>
-        </li>
-        <li className={css.title}>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <AvatarList>
+        <AvatarItem>
+          <span>Followers</span>
+          <span>{stats.followers}</span>
+        </AvatarItem>
+        <AvatarItem>
+          <span>Views</span>
+          <span>{stats.views}</span>
+        </AvatarItem>
+        <AvatarItem>
+          <span>Likes</span>
+          <span>{stats.likes}</span>
+        </AvatarItem>
+      </AvatarList>
+    </ContainerAvatar>
   );
 };
 
